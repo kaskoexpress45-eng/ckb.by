@@ -1929,3 +1929,6 @@ details > p {
 .portrait{margin:0;min-width:0}.portrait-frame{position:relative;aspect-ratio:1/1.04;overflow:hidden;border-radius:4px;background:#1d4863}.portrait-frame img{object-fit:cover;object-position:47% 40%}.portrait figcaption{display:flex;justify-content:space-between;gap:15px;margin-top:13px;font-size:10px;color:var(--muted)}.portrait figcaption span:first-child{color:var(--ink);font-weight:600}.about-portrait .portrait-frame{aspect-ratio:4/5}.speaking-layout{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:75px}.speaking-photo{margin:0}.speaking-photo img{display:block;width:100%;height:auto;border-radius:4px}.speaking-layout .section-intro{margin-bottom:20px}.speaking-layout p{font-size:15px}.speaking-layout .text-link{margin-top:20px}
 @media(max-width:900px){.speaking-layout{gap:35px}.portrait figcaption{font-size:9px}}
 @media(max-width:650px){.hero-portrait .portrait-frame{aspect-ratio:1/1.02}.portrait figcaption{font-size:10px;flex-wrap:wrap;gap:5px}.speaking-layout{grid-template-columns:1fr;gap:32px}.about-portrait .portrait-frame{aspect-ratio:1/1.1}.speaking-layout h2{font-size:32px}}
+
+/* Keep space above the head in the retouched vertical portrait. */
+.portrait-frame img { object-position: 50% 15%; }

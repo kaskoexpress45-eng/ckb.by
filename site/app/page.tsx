@@ -16,7 +16,7 @@ export default function Home() {
         "@id": `${siteUrl}/#yuri`,
         name: "Юрий Бельчик",
         url: siteUrl,
-        image: `${siteUrl}/images/yuri-belchik-portrait.jpg`,
+        image: `${siteUrl}/images/yuri-belchik-portrait-retouched.png`,
         telephone: contact.phone,
         email: contact.email,
         sameAs: [contact.telegram],
