@@ -1,6 +1,7 @@
 import { Arrow } from "@/components/ui";
 import { LeadForm } from "@/components/lead-form";
-import { contact } from "@/lib/site";
+import { DirectContact } from "@/components/direct-contact";
+import { contact, requestTopics, developmentFormats } from "@/lib/site";
 export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Связаться с Юрием Бельчиком",
@@ -19,12 +20,9 @@ export default async function Contacts({
     ["development", "protection", "capital"].includes(params.direction)
       ? params.direction
       : "development";
-  const tasks: Record<string, string> = {
-    sales: "Хочу обсудить продажи",
-    negotiations: "Хочу обсудить переговоры",
-    leadership: "Хочу обсудить развитие руководителя или команды",
-  };
-  const task = typeof params.task === "string" ? tasks[params.task] || "" : "";
+  const taskMessage = typeof params.task === "string" && Object.hasOwn(requestTopics, params.task) ? requestTopics[params.task] : "";
+  const format = direction === "development" && typeof params.format === "string" ? developmentFormats.find((item) => item.id === params.format) : undefined;
+  const task = format ? `Хочу обсудить формат «${format.title}»` : taskMessage;
   const enabled =
     process.env.LEAD_INTAKE_ENABLED === "true" &&
     Boolean(
@@ -36,13 +34,10 @@ export default async function Contacts({
     protection: "Хочу обсудить страховую защиту",
     capital: "Хочу обсудить накопительную программу",
   }[direction] || "Хочу обсудить мою задачу");
-  const telegramDraft = contact.telegram
-    ? `${contact.telegram}?text=${encodeURIComponent(`Здравствуйте, Юрий! ${message}.`)}`
-    : "";
   return (
     <section className="section contact-section" id="consultation">
       <div className="container contact-layout">
-        <div>
+        <div className="contact-intro">
           <span className="eyebrow">Первый шаг</span>
           <h1>
             Давайте разберём
@@ -53,6 +48,18 @@ export default async function Contacts({
             Расскажите, что хотите изменить. Я свяжусь с вами, чтобы обсудить
             задачу и предложить следующий шаг.
           </p>
+        </div>
+        {enabled ? (
+          <LeadForm
+            initialDirection={direction}
+            initialTask={task}
+            enabled
+          />
+        ) : (
+          <DirectContact message={message} />
+        )}
+        <div className="contact-methods">
+          <h2>Другие способы связи</h2>
           <div className="contact-links">
             {contact.phone && (
               <a
@@ -86,37 +93,6 @@ export default async function Contacts({
             Страховая защита · Накопительные программы
           </p>
         </div>
-        {enabled ? (
-          <LeadForm
-            initialDirection={direction}
-            initialTask={task}
-            enabled
-          />
-        ) : (
-          <div className="direct-contact-panel">
-            <span className="eyebrow">Без лишних шагов</span>
-            <h2>Начнём с вашей задачи</h2>
-            <p className="large-text">{message}</p>
-            <p>
-              Напишите, что происходит сейчас, какого результата хотите достичь
-              и что уже пробовали. Это поможет начать предметный разговор.
-            </p>
-            {telegramDraft && (
-              <a className="button" href={telegramDraft} data-track="telegram_click">
-                Обсудить в Telegram <Arrow diagonal />
-              </a>
-            )}
-            {contact.email && (
-              <a className="text-link" href={`mailto:${contact.email}?subject=${encodeURIComponent(message)}`}>
-                Написать по почте <Arrow diagonal />
-              </a>
-            )}
-            <p className="field-hint">
-              Откроется переписка с Юрием. Сообщение отправите вы сами;
-              сайт не сохраняет заявку.
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );

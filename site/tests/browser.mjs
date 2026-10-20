@@ -60,7 +60,7 @@ try {
     "aria-expanded",
     "false",
   );
-  await page.locator(".task-card a").first().click();
+  await page.locator("a.task-card").first().click();
   await page.waitForURL(
     "**/kontakty?direction=development&task=sales#consultation",
   );

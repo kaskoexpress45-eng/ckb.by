@@ -50,6 +50,9 @@ export function Header() {
           id="main-nav"
           className={open ? "main-nav is-open" : "main-nav"}
           aria-label="Основная навигация"
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget) && event.relatedTarget?.id !== "menu-toggle") setOpen(false);
+          }}
         >
           {navigation.map(([href, label]) => (
             <Link
@@ -66,13 +69,13 @@ export function Header() {
             href={consultation()}
             onClick={() => setOpen(false)}
           >
-            Получить консультацию
+            Обсудить задачу
           </Link>
         </nav>
-        <Link href={consultation()} className="header-consult">
-          Получить консультацию{" "}
+        <Link href={consultation()} className="header-consult button">
+          Обсудить задачу{" "}
           <span aria-hidden="true">
-            <Arrow diagonal />
+            <Arrow />
           </span>
         </Link>
       </div>

@@ -6,12 +6,29 @@ export const contact = {
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "",
 };
 export const navigation = [
-  ["/", "Главная"],
-  ["/zashchita", "Защита"],
-  ["/kapital", "Капитал"],
-  ["/razvitie", "Развитие"],
+  ["/razvitie", "Продажи и переговоры"],
   ["/obo-mne", "Обо мне"],
+  ["/zashchita", "Страхование"],
+  ["/kapital", "Накопления"],
   ["/kontakty", "Контакты"],
+];
+export const requestTopics: Record<string, string> = {
+  sales: "Хочу обсудить продажи",
+  negotiations: "Хочу обсудить переговоры",
+  leadership: "Хочу обсудить развитие руководителя или команды",
+  profiling: "Хочу обсудить понимание потребностей клиента",
+  communication: "Хочу обсудить управление коммуникацией",
+  coaching: "Хочу обсудить коучинг целей и решений",
+};
+export const developmentFormats = [
+  { id: "speaker", title: "Выступление спикером", text: "Для конференций, бизнес-встреч и внутренних мероприятий: продажи, переговоры, возражения и уверенность в сделке" },
+  { id: "insurance-sales", title: "Обучение продажам страхования", text: "Как объяснять рисковые и накопительные продукты простым языком через задачи клиента" },
+  { id: "individual", title: "Индивидуальная консультация", text: "Разобрать конкретную задачу и увидеть возможные решения" },
+  { id: "team-training", title: "Корпоративный тренинг", text: "Выстроить общий подход и инструменты для команды" },
+  { id: "negotiation-review", title: "Разбор переговоров", text: "Понять, где диалог теряет направление и что изменить" },
+  { id: "coaching", title: "Коучинговая сессия", text: "Прояснить цели, варианты и личные решения" },
+  { id: "practice", title: "Практическая отработка", text: "Попробовать инструменты на рабочих ситуациях" },
+  { id: "strategy", title: "Стратегическая сессия", text: "Согласовать приоритеты и дальнейшие действия" },
 ];
 export const proposition = {
   headline: "Сложные сделки требуют сильных переговоров",
@@ -81,6 +98,12 @@ export const faqs = [
     "Результат зависит от задачи, участия команды и применения инструментов в работе. Вместо обещаний роста заранее определяем, какие изменения будем отслеживать.",
   ],
 ];
-export function consultation(direction = "development") {
-  return `/kontakty?direction=${direction}#consultation`;
+export function consultation(
+  direction = "development",
+  selection: { task?: string; format?: string } = {},
+) {
+  const params = new URLSearchParams({ direction });
+  if (selection.task) params.set("task", selection.task);
+  if (selection.format) params.set("format", selection.format);
+  return `/kontakty?${params}#consultation`;
 }

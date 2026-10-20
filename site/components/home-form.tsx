@@ -1,3 +1,4 @@
+import { DirectContact } from "@/components/direct-contact";
 import { LeadForm } from "@/components/lead-form";
 export function HomeForm() {
   const enabled =
@@ -24,7 +25,7 @@ export function HomeForm() {
             Можно обратиться по вопросам развития, защиты или капитала
           </p>
         </div>
-        <LeadForm enabled={enabled} />
+        {enabled ? <LeadForm enabled /> : <DirectContact />}
       </div>
     </section>
   );

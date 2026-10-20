@@ -63,22 +63,13 @@ export default function Home() {
               <p className="hero-description">{proposition.description}</p>
               <div className="hero-actions">
                 <Link href={consultation()} className="button">
-                  Обсудить мою задачу <Arrow />
+                  Обсудить задачу <Arrow />
                 </Link>
-                {contact.telegram ? (
-                  <a
-                    className="text-link"
-                    href={contact.telegram}
-                    data-track="telegram_click"
-                  >
-                    Написать в Telegram <Arrow diagonal />
-                  </a>
-                ) : (
-                  <a href="#approach" className="text-link">
-                    Как проходит работа <Arrow diagonal />
-                  </a>
-                )}
+                <a href="#tasks" className="text-link">
+                  Выбрать тему работы <Arrow />
+                </a>
               </div>
+              <p className="action-hint">Сначала обсудим ситуацию и подходящий формат работы.</p>
             </div>
             <Portrait hero />
           </div>
@@ -118,19 +109,14 @@ export default function Home() {
                 "leadership",
               ],
             ].map(([name, title, text, task]) => (
-              <article className="task-card" key={name}>
+              <Link className="task-card" key={name} href={consultation("development", { task })}>
                 <div className="task-card-top">
                   <span>{name}</span>
-                  <Arrow diagonal />
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <Link
-                  href={`${consultation().replace("#consultation", "")}&task=${task}#consultation`}
-                >
-                  Разобрать ситуацию <span className="sr-only">: {name}</span>
-                </Link>
-              </article>
+                <span className="task-action">Обсудить {name === "Руководство" ? "задачу команды" : name.toLowerCase()} <Arrow /></span>
+              </Link>
             ))}
           </div>
           <Link href="/razvitie" className="text-link section-link">

@@ -6,29 +6,13 @@ import {
   GrowSteps,
   SectionIntro,
 } from "@/components/ui";
-import { consultation, siteUrl } from "@/lib/site";
+import { consultation, siteUrl, developmentFormats } from "@/lib/site";
 export const metadata = {
   title: "Продажи, переговоры и развитие руководителей",
   description:
     "Тренинги, разборы переговоров и коучинг для руководителей и команд. Выберите формат под вашу задачу и обсудите следующий шаг.",
   alternates: { canonical: "/razvitie" },
 };
-const formats = [
-  ["Выступление спикером", "Для конференций, бизнес-встреч и внутренних мероприятий: продажи, переговоры, возражения и уверенность в сделке"],
-  ["Обучение продажам страхования", "Как объяснять рисковые и накопительные продукты простым языком через задачи клиента"],
-  [
-    "Индивидуальная консультация",
-    "Разобрать конкретную задачу и увидеть возможные решения",
-  ],
-  ["Корпоративный тренинг", "Выстроить общий подход и инструменты для команды"],
-  [
-    "Разбор переговоров",
-    "Понять, где диалог теряет направление и что изменить",
-  ],
-  ["Коучинговая сессия", "Прояснить цели, варианты и личные решения"],
-  ["Практическая отработка", "Попробовать инструменты на рабочих ситуациях"],
-  ["Стратегическая сессия", "Согласовать приоритеты и дальнейшие действия"],
-];
 export default function Development() {
   const schema = {
     "@context": "https://schema.org",
@@ -73,7 +57,7 @@ export default function Development() {
       </section>
       <section className="section speaking-section"><div className="container speaking-layout">
         <figure className="speaking-photo"><Image src="/images/yuri-belchik-speaking.jpg" alt="Юрий Бельчик выступает перед аудиторией" width={1280} height={853} sizes="(max-width: 650px) 100vw, 55vw" /></figure>
-        <div><SectionIntro label="Команды и аудитории" title="Практика, которую можно перенести в работу" text="Выступаю как спикер и провожу корпоративные тренинги для отделов продаж. Разбираем реальные переговоры, возражения, разговоры о деньгах и сложные продукты."/><p>Сначала — диагностика текущих диалогов. Затем — отработка формулировок и закрепление навыков с понятными критериями качества.</p><Link className="text-link" href={consultation()}>Обсудить выступление или тренинг <Arrow /></Link></div>
+        <div><SectionIntro label="Команды и аудитории" title="Практика, которую можно перенести в работу" text="Выступаю как спикер и провожу корпоративные тренинги для отделов продаж. Разбираем реальные переговоры, возражения, разговоры о деньгах и сложные продукты."/><p>Сначала — диагностика текущих диалогов. Затем — отработка формулировок и закрепление навыков с понятными критериями качества.</p><Link className="text-link" href={consultation("development", { format: "team-training" })}>Обсудить корпоративный тренинг <Arrow /></Link></div>
       </div></section>
       <section className="section">
         <div className="container">
@@ -90,17 +74,17 @@ export default function Development() {
           </div>
           <div className="topic-list">
             {[
-              "Продажи через личность",
-              "Переговоры и работа с возражениями",
-              "Профайлинг клиента",
-              "Управление коммуникацией",
-              "Коучинг целей и решений",
-              "Развитие руководителей и команд",
-            ].map((t) => (
-              <div key={t}>
-                <h3>{t}</h3>
-                <Arrow diagonal />
-              </div>
+              ["Продажи через личность", "sales"],
+              ["Переговоры и работа с возражениями", "negotiations"],
+              ["Профайлинг клиента", "profiling"],
+              ["Управление коммуникацией", "communication"],
+              ["Коучинг целей и решений", "coaching"],
+              ["Развитие руководителей и команд", "leadership"],
+            ].map(([title, task]) => (
+              <Link key={task} href={consultation("development", { task })}>
+                <h3>{title}</h3>
+                <Arrow />
+              </Link>
             ))}
           </div>
         </div>
@@ -112,11 +96,11 @@ export default function Development() {
             title="Работа, которая подходит вашей ситуации"
           />
           <div className="format-grid">
-            {formats.map(([title, text]) => (
+            {developmentFormats.map(({ id, title, text }) => (
               <article key={title}>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <Link className="text-link" href={consultation()}>
+                <Link className="text-link" href={consultation("development", { format: id })}>
                   Обсудить формат <span className="sr-only">{title}</span>
                   <Arrow />
                 </Link>
