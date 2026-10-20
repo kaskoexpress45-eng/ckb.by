@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Portrait } from "@/components/portrait";
 import { HomeForm } from "@/components/home-form";
 import { Arrow, GrowSteps, SectionIntro } from "@/components/ui";
-import { consultation, contact, directions, faqs, siteUrl } from "@/lib/site";
+import { consultation, contact, directions, faqs, siteUrl, proposition } from "@/lib/site";
 export const metadata = {
   title: "Юрий Бельчик — продажи, переговоры и развитие руководителей",
   alternates: { canonical: "/" },
@@ -52,29 +52,18 @@ export default function Home() {
           <div className="hero-topline">
             <span className="eyebrow">
               <span className="status-dot" />
-              Юрий Бельчик
+              Практик продаж и переговоров
             </span>
             <span className="hero-descriptor">Архитектор сильных решений</span>
           </div>
           <div className="hero-grid">
             <div className="hero-copy">
-              <h1>
-                Продажи.
-                <br />
-                Переговоры.
-                <br />
-                <span className="underlined">Развитие.</span>
-              </h1>
-              <p className="hero-subtitle">
-                Продажи, переговоры и развитие руководителей
-              </p>
-              <p className="hero-description">
-                Помогаю людям и командам увереннее договариваться, сильнее
-                продавать и находить свой следующий шаг
-              </p>
+              <h1>{proposition.headline}</h1>
+              <p className="hero-subtitle">{proposition.subheadline}</p>
+              <p className="hero-description">{proposition.description}</p>
               <div className="hero-actions">
                 <Link href={consultation()} className="button">
-                  Обсудить задачу <Arrow />
+                  Разобрать задачу команды <Arrow />
                 </Link>
                 {contact.telegram ? (
                   <a
@@ -93,15 +82,10 @@ export default function Home() {
             </div>
             <Portrait hero />
           </div>
-          <div className="hero-baseline">
-            <p>
-              За конкретной задачей —<br />
-              <strong>человек, команда, бизнес</strong>
-            </p>
-            <a href="#tasks" className="scroll-link">
-              Найти свою задачу <span aria-hidden="true">↓</span>
-            </a>
-            <span>Практика вместо общих советов</span>
+          <div className="hero-proof">
+            <div><strong>20+ лет практики</strong><span>В продажах, страховании и переговорах</span></div>
+            <div><strong>Работа на ваших ситуациях</strong><span>Диагностика, отработка и закрепление навыка</span></div>
+            <a href="#approach" className="text-link">Как проходит работа <Arrow /></a>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@fontsource-variable/manrope";
+import "@fontsource-variable/golos-text";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | CKB.by",
   },
   description:
-    "Продажи, переговоры и развитие руководителей. Юрий Бельчик помогает людям и командам разобраться в задаче и определить следующий шаг.",
+    "Юрий Бельчик помогает командам продавать сложные решения: разбор реальных сделок, практика переговоров и рабочие сценарии под ваш продукт.",
   openGraph: {
     type: "website",
     locale: "ru_RU",

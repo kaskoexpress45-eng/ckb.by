@@ -8,8 +8,7 @@ export function Footer() {
         <div className="footer-top">
           <div>
             <Link className="wordmark" href="/">
-              ckb<span className="brand-dot">.</span>
-              <span className="wordmark-by">by</span>
+              <span className="brand-name">Юрий Бельчик</span><span className="brand-tagline">Продажи и переговоры</span>
             </Link>
             <p>
               Юрий Бельчик

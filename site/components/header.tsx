@@ -25,10 +25,9 @@ export function Header() {
           className="wordmark"
           href="/"
           onClick={() => setOpen(false)}
-          aria-label="CKB.by — на главную"
+          aria-label="Юрий Бельчик — на главную"
         >
-          ckb<span className="brand-dot">.</span>
-          <span className="wordmark-by">by</span>
+          <span className="brand-name">Юрий Бельчик</span><span className="brand-tagline">Продажи и переговоры</span>
         </Link>
         <button
           id="menu-toggle"

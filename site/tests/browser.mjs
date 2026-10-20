@@ -115,7 +115,7 @@ try {
     .textContent();
   assert.ok(JSON.parse(json)["@graph"]);
   assert.equal(
-    await page.evaluate(() => document.fonts.check('16px "Manrope Variable"')),
+    await page.evaluate(() => document.fonts.check('16px "Golos Text Variable"')),
     true,
   );
   mkdirSync("../review", { recursive: true });

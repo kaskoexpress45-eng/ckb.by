@@ -7,8 +7,8 @@ export default function Image() {
   return new ImageResponse(
     <div
       style={{
-        background: "#183f35",
-        color: "#f6f7f2",
+        background: "#142d4d",
+        color: "#f4f6fa",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -35,9 +35,9 @@ export default function Image() {
           maxWidth: 1000,
         }}
       >
-        Сильные решения начинаются с понимания
+        Помогаю командам продавать сложные решения
       </div>
-      <div style={{ fontSize: 27, display: "flex", color: "#c9d9c7" }}>
+      <div style={{ fontSize: 27, display: "flex", color: "#e7bd78" }}>
         Продажи • Переговоры • Развитие руководителей
       </div>
     </div>,
