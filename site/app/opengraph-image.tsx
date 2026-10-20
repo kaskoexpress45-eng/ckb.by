@@ -7,7 +7,7 @@ export default function Image() {
   return new ImageResponse(
     <div
       style={{
-        background: "#142d4d",
+        background: "#242326",
         color: "#f4f6fa",
         width: "100%",
         height: "100%",
@@ -35,9 +35,9 @@ export default function Image() {
           maxWidth: 1000,
         }}
       >
-        Помогаю командам продавать сложные решения
+        Сложные сделки требуют сильных переговоров
       </div>
-      <div style={{ fontSize: 27, display: "flex", color: "#e7bd78" }}>
+      <div style={{ fontSize: 27, display: "flex", color: "#d0b6bd" }}>
         Продажи • Переговоры • Развитие руководителей
       </div>
     </div>,

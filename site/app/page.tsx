@@ -16,7 +16,7 @@ export default function Home() {
         "@id": `${siteUrl}/#yuri`,
         name: "Юрий Бельчик",
         url: siteUrl,
-        image: `${siteUrl}/images/yuri-belchik-portrait-retouched.png`,
+        image: `${siteUrl}/images/yuri-belchik-natural.png`,
         telephone: contact.phone,
         email: contact.email,
         sameAs: [contact.telegram],
@@ -52,7 +52,7 @@ export default function Home() {
           <div className="hero-topline">
             <span className="eyebrow">
               <span className="status-dot" />
-              Практик продаж и переговоров
+              Личная практика. Корпоративное обучение.
             </span>
             <span className="hero-descriptor">Архитектор сильных решений</span>
           </div>
@@ -63,7 +63,7 @@ export default function Home() {
               <p className="hero-description">{proposition.description}</p>
               <div className="hero-actions">
                 <Link href={consultation()} className="button">
-                  Разобрать задачу команды <Arrow />
+                  Обсудить мою задачу <Arrow />
                 </Link>
                 {contact.telegram ? (
                   <a
@@ -89,6 +89,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="executive-brief"><div className="container executive-brief-inner"><span className="eyebrow">Результат первого разговора</span><h2>Ясная задача.<br/>Понятный следующий шаг.</h2><p>Что хотите изменить? Что происходит сейчас? Какие есть варианты? С чего начать? Четыре вопроса помогают перейти от общего запроса к предметной работе.</p></div></section>
       <section id="tasks" className="section">
         <div className="container">
           <SectionIntro

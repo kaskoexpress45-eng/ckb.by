@@ -72,7 +72,7 @@ export default function Development() {
         </div>
       </section>
       <section className="section speaking-section"><div className="container speaking-layout">
-        <figure className="speaking-photo"><Image src="/images/yuri-belchik-speaking-retouched.png" alt="Юрий Бельчик выступает перед аудиторией" width={1536} height={1024} sizes="(max-width: 650px) 100vw, 55vw" /></figure>
+        <figure className="speaking-photo"><Image src="/images/yuri-belchik-speaking.jpg" alt="Юрий Бельчик выступает перед аудиторией" width={1280} height={853} sizes="(max-width: 650px) 100vw, 55vw" /></figure>
         <div><SectionIntro label="Команды и аудитории" title="Практика, которую можно перенести в работу" text="Выступаю как спикер и провожу корпоративные тренинги для отделов продаж. Разбираем реальные переговоры, возражения, разговоры о деньгах и сложные продукты."/><p>Сначала — диагностика текущих диалогов. Затем — отработка формулировок и закрепление навыков с понятными критериями качества.</p><Link className="text-link" href={consultation()}>Обсудить выступление или тренинг <Arrow /></Link></div>
       </div></section>
       <section className="section">
