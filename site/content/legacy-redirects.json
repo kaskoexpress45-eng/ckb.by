@@ -1,0 +1,37 @@
+[
+  {
+    "source": "/uslugi/kouch-po-prodazham",
+    "destination": "/razvitie",
+    "permanent": true
+  },
+  {
+    "source": "/uslugi/korporativnoe-obuchenie-prodazham",
+    "destination": "/razvitie",
+    "permanent": true
+  },
+  {
+    "source": "/uslugi/obuchenie-prodazham-strahovaniya",
+    "destination": "/razvitie",
+    "permanent": true
+  },
+  {
+    "source": "/uslugi/rabota-s-vozrazheniyami",
+    "destination": "/razvitie",
+    "permanent": true
+  },
+  {
+    "source": "/uslugi/obuchenie-peregovoram",
+    "destination": "/razvitie",
+    "permanent": true
+  },
+  {
+    "source": "/uslugi/trening-po-prodazham",
+    "destination": "/razvitie",
+    "permanent": true
+  },
+  {
+    "source": "/uslugi",
+    "destination": "/razvitie",
+    "permanent": true
+  }
+]
