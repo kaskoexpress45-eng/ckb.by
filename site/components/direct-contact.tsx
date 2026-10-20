@@ -3,7 +3,7 @@ import { contact } from "@/lib/site";
 
 export function DirectContact({ message = "Хочу обсудить продажи и переговоры" }: { message?: string }) {
   const telegramDraft = contact.telegram ? new URL(contact.telegram) : null;
-  telegramDraft?.searchParams.set("text", `Здравствуйте, Юрий! ${message}.`);
+  telegramDraft?.searchParams.set("text", `Здравствуйте, Юрий!\n\n${message}.`);
   return (
     <div className="direct-contact-panel">
       <span className="eyebrow">Первый разговор</span>
@@ -11,7 +11,7 @@ export function DirectContact({ message = "Хочу обсудить прода�
       <p className="large-text">{message}</p>
       <p>Расскажите, что хотите изменить и что мешает сейчас. Обсудим ситуацию и выберем следующий шаг.</p>
       {telegramDraft && (
-        <a className="button" href={telegramDraft.toString()} data-track="telegram_click">
+        <a className="button" href={telegramDraft.toString().replace(/\+/g, "%20")} data-track="telegram_click">
           Написать в Telegram <Arrow diagonal />
         </a>
       )}

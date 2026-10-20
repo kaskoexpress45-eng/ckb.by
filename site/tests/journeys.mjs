@@ -99,6 +99,7 @@ try {
       telegramNavigation = "";
       await button.click();
       await page.waitForURL('https://t.me/**');
+      assert.ok(!telegramNavigation.includes('+'), 'Telegram draft spaces must use %20, not plus');
       const target = new URL(telegramNavigation);
       assert.equal(target.pathname, '/yuribelchik');
       assert.ok(target.searchParams.get('text').startsWith('Здравствуйте, Юрий!'));

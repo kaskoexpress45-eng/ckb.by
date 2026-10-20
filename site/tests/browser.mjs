@@ -70,7 +70,7 @@ try {
     const draft = new URL(await page.locator(".direct-contact-panel .button").getAttribute("href"));
     assert.equal(draft.hostname, "t.me");
     assert.equal(draft.pathname, "/yuribelchik");
-    assert.equal(draft.searchParams.get("text"), "Здравствуйте, Юрий! Хочу обсудить продажи.");
+    assert.equal(draft.searchParams.get("text"), "Здравствуйте, Юрий!\n\nХочу обсудить продажи.");
   } else {
     await expect(page.locator("select[name=direction]")).toHaveValue("development");
     await expect(page.locator("textarea")).toHaveValue("Хочу обсудить продажи");
