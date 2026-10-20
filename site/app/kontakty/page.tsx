@@ -31,6 +31,14 @@ export default async function Contacts({
       (process.env.SUPABASE_URL && process.env.SUPABASE_SECRET_KEY) ||
       (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID),
     );
+  const message = task || ({
+    development: "Хочу обсудить продажи и переговоры",
+    protection: "Хочу обсудить страховую защиту",
+    capital: "Хочу обсудить накопительную программу",
+  }[direction] || "Хочу обсудить мою задачу");
+  const telegramDraft = contact.telegram
+    ? `${contact.telegram}?text=${encodeURIComponent(`Здравствуйте, Юрий! ${message}.`)}`
+    : "";
   return (
     <section className="section contact-section" id="consultation">
       <div className="container contact-layout">
@@ -78,11 +86,37 @@ export default async function Contacts({
             Страховая защита · Накопительные программы
           </p>
         </div>
-        <LeadForm
-          initialDirection={direction}
-          initialTask={task}
-          enabled={enabled}
-        />
+        {enabled ? (
+          <LeadForm
+            initialDirection={direction}
+            initialTask={task}
+            enabled
+          />
+        ) : (
+          <div className="direct-contact-panel">
+            <span className="eyebrow">Без лишних шагов</span>
+            <h2>Начнём с вашей задачи</h2>
+            <p className="large-text">{message}</p>
+            <p>
+              Напишите, что происходит сейчас, какого результата хотите достичь
+              и что уже пробовали. Это поможет начать предметный разговор.
+            </p>
+            {telegramDraft && (
+              <a className="button" href={telegramDraft} data-track="telegram_click">
+                Обсудить в Telegram <Arrow diagonal />
+              </a>
+            )}
+            {contact.email && (
+              <a className="text-link" href={`mailto:${contact.email}?subject=${encodeURIComponent(message)}`}>
+                Написать по почте <Arrow diagonal />
+              </a>
+            )}
+            <p className="field-hint">
+              Откроется переписка с Юрием. Сообщение отправите вы сами;
+              сайт не сохраняет заявку.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

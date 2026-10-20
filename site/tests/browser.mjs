@@ -64,18 +64,23 @@ try {
   await page.waitForURL(
     "**/kontakty?direction=development&task=sales#consultation",
   );
-  await expect(page.locator("select[name=direction]")).toHaveValue(
-    "development",
-  );
-  await expect(page.locator("textarea")).toHaveValue("Хочу обсудить продажи");
-  if (process.env.CKB_TEST_DISABLED_INTAKE === "1")
-    await expect(
-      page.getByRole("button", { name: "Отправить заявку" }),
-    ).toBeDisabled();
-  await page.goto(base + "/kontakty?direction=capital", {
-    waitUntil: "networkidle",
-  });
-  await expect(page.locator("select")).toHaveValue("capital");
+  if (process.env.CKB_TEST_DISABLED_INTAKE === "1") {
+    await expect(page.locator("form.lead-form")).toHaveCount(0);
+    await expect(page.locator(".direct-contact-panel .large-text")).toHaveText("Хочу обсудить продажи");
+    const draft = new URL(await page.locator(".direct-contact-panel .button").getAttribute("href"));
+    assert.equal(draft.hostname, "t.me");
+    assert.equal(draft.pathname, "/yuribelchik");
+    assert.equal(draft.searchParams.get("text"), "Здравствуйте, Юрий! Хочу обсудить продажи.");
+  } else {
+    await expect(page.locator("select[name=direction]")).toHaveValue("development");
+    await expect(page.locator("textarea")).toHaveValue("Хочу обсудить продажи");
+  }
+  await page.goto(base + "/kontakty?direction=capital", { waitUntil: "networkidle" });
+  if (process.env.CKB_TEST_DISABLED_INTAKE === "1") {
+    await expect(page.locator(".direct-contact-panel .large-text")).toHaveText("Хочу обсудить накопительную программу");
+  } else {
+    await expect(page.locator("select")).toHaveValue("capital");
+  }
   await page.goto(base, { waitUntil: "networkidle" });
   await page.locator("details").first().locator("summary").click();
   await expect(page.locator("details").first()).toHaveAttribute("open", "");

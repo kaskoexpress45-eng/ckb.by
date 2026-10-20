@@ -1946,3 +1946,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}body{line-height:1.65}.wordmark{
 @media(max-width:1150px){.hero-copy h1{font-size:55px}.hero-grid{gap:38px}.executive-brief-inner{gap:30px;grid-template-columns:.7fr 1.4fr 1.2fr}}
 @media(max-width:900px){.hero-copy h1{font-size:45px}.hero-subtitle{font-size:18px}.hero-description{font-size:15px}.hero-grid{gap:28px}.hero-proof{grid-template-columns:1fr 1fr}.hero-proof .text-link{grid-column:1/-1}.executive-brief-inner{grid-template-columns:1fr 1.5fr;gap:25px}.executive-brief-inner>.eyebrow{grid-column:1/-1;max-width:none}}
 @media(max-width:650px){.menu-toggle{color:#f4edef}.site-header .main-nav{background:#242326;border-color:#484146}.site-header .main-nav .mobile-consult{background:#8e4658}.hero{padding-top:22px}.hero-grid{grid-template-columns:1fr;padding-top:27px;gap:30px}.hero-copy h1{font-size:clamp(38px,10vw,50px);line-height:1.1;font-weight:500}.hero-subtitle{font-size:20px;margin-top:24px}.hero-description{font-size:16px;line-height:1.7}.hero-topline .eyebrow{max-width:175px;font-size:10px;line-height:1.7}.hero-descriptor{font-size:10px}.hero-actions .button{width:100%;justify-content:space-between}.hero-actions .text-link{font-size:14px}.hero-portrait .portrait-frame{aspect-ratio:4/4.7;max-height:none}.hero-proof{grid-template-columns:1fr;gap:23px}.hero-proof .text-link{grid-column:auto}.executive-brief{padding:45px 0}.executive-brief-inner{grid-template-columns:1fr;gap:20px}.executive-brief h2{font-size:34px}.executive-brief p{font-size:15px}.task-card{padding:25px 0}.site-header .brand-tagline{font-size:11px}}
+
+.direct-contact-panel { background: var(--soft); padding: clamp(26px, 4vw, 54px); align-self: start; display: grid; gap: 24px; border-top: 3px solid var(--primary); }
+.direct-contact-panel h2, .direct-contact-panel p { margin: 0; }
+.direct-contact-panel h2 { font-size: clamp(30px, 3vw, 42px); line-height: 1.15; }
+.direct-contact-panel .button { justify-self: start; }
+.direct-contact-panel .large-text { color: var(--primary); }
+@media (max-width: 600px) { .direct-contact-panel .button { width: 100%; } }

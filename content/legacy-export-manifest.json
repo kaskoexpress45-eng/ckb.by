@@ -1,0 +1,32 @@
+{
+  "origin": "https://ckb.by",
+  "exported_at": "2026-10-20T18:14:09.228901+00:00",
+  "scope": "Public REST content only. No database, private records, themes, plugins or media binaries.",
+  "resources": {
+    "posts": {
+      "count": 702,
+      "bytes": 29517542,
+      "sha256": "a67a546ecab6bf71c795bdfa37ae467f6fda89d032db11aa49081fac8dfa2995"
+    },
+    "pages": {
+      "count": 11,
+      "bytes": 121339,
+      "sha256": "0e21acb37d2d839429dde32defca956d03861fa49806d061075448c1769863d1"
+    },
+    "categories": {
+      "count": 5,
+      "bytes": 5553,
+      "sha256": "fd1105ef35383b7762835df598a0ecbd58bcf04447cfeef7c94ff3bb21fbc71d"
+    },
+    "tags": {
+      "count": 0,
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "media": {
+      "count": 1254,
+      "bytes": 5438702,
+      "sha256": "95b7f245484f7158b5477708b55acf93cf394dd6cb8837d7975f8e465974d252"
+    }
+  }
+}
